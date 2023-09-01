@@ -1,16 +1,17 @@
-# Python Object Oriented Programming by Joe Marini course example
 # Using class-level and static methods
 
 
 class Book:
-    # TODO: Properties defined at the class level are shared by all instances
+    # Properties defined at the class level are shared by all instances
     BOOK_TYPES = ("HARDCOVER", "PAPERBACK", "EBOOK")
-    # TODO: double-underscore properties are hidden from other classes
+
+    # double-underscore properties are hidden from other classes
     __booklist = None
 
     # static methods do not receive class or instance arguments
     # and usually operate on data that is not instance- or
     # class-specific
+
     @staticmethod
     def getbooklist():
         if Book.__booklist == None:
@@ -25,8 +26,6 @@ class Book:
 
     # instance methods receive a specific object instance as an argument
     # and operate on data specific to that object instance
-    def setTitle(self, newtitle):
-        self.title = newtitle
 
     def __init__(self, title, booktype):
         self.title = title
@@ -35,8 +34,11 @@ class Book:
         else:
             self.booktype = booktype
 
+    def setTitle(self, newtitle):
+        self.title = newtitle
 
-# TODO: access the class attribute
+
+# access the class attribute
 print("Book types: ", Book.getbooktypes())
 
 # TODO: Create some book instances

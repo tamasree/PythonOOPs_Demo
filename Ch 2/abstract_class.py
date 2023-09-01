@@ -1,16 +1,12 @@
-# Python Object Oriented Programming by Joe Marini course example
 # Using Abstract Base Classes to enforce class constraints
-
-from abc import ABC, abstractmethod
+from abc import ABC, abstractclassmethod
 
 
 class GraphicShape(ABC):
-    # Inheriting from ABC indicates that this is an abstract base class
     def __init__(self):
         super().__init__()
 
-    # declaring a method as abstract requires a subclass to implement it
-    @abstractmethod
+    @abstractclassmethod
     def calcArea(self):
         pass
 
@@ -20,7 +16,7 @@ class Circle(GraphicShape):
         self.radius = radius
 
     def calcArea(self):
-        return 3.14 * (self.radius ** 2)
+        return 3.14 * (self.radius * self.radius)
 
 
 class Square(GraphicShape):
@@ -28,11 +24,10 @@ class Square(GraphicShape):
         self.side = side
 
     def calcArea(self):
-        return self.side * self.side
+        return (self.side * self.side)
 
 
-# Abstract classes can't be instantiated themselves
-# g = GraphicShape() # this will error
+# g = GraphicShape()
 
 c = Circle(10)
 print(c.calcArea())
